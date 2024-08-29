@@ -1,5 +1,414 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  font-family: var(--main-font);
+  background-color: var(--bg-color);
+  block-size: auto;
+}
+
+.decorated-zone {
+  display: flex;
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: "";
+  align-self: flex-start;
+  justify-self: end;
+  inline-size: 25px;
+  block-size: 25px;
+  position: absolute;
+  border-block-start: 1px solid var(--header-color);
+  border-inline-end: 1px solid var(--header-color);
+  margin-block-start: var(--inline_block-margin);
+  margin-inline-end: var(--inline_block-margin);
+}
+
+.decorated-zone::after {
+  content: "";
+  align-self: flex-end;
+  justify-self: start;
+  inline-size: 25px;
+  block-size: 25px;
+  position: absolute;
+  border-block-end: 1px solid var(--header-color);
+  border-inline-start: 1px solid var(--header-color);
+  margin-block-end: var(--inline_block-margin);
+  margin-inline-start: var(--inline_block-margin);
+}
+
+.decoration-zone-dark {
+  align-self: flex-start;
+  justify-self: end;
+  position: absolute;
+  visibility: var(--rec-decor-visibility);
+  font-family: var(--main-font);
+  font-weight: 400;
+  font-size: var(--font-size-text);
+  color: var(--accent-color);
+  text-transform: uppercase;
+  line-height: 25px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin-block-start: var(--inline_block-margin);
+  margin-inline-end: var(--inline_block-margin);
+}
+
+.decoration-zone-dark::after {
+  content: "";
+  display: block;
+  inline-size: 9px;
+  block-size: 9px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  align-self: center;
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  margin-inline-end: 9px;
+}
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+  min-height: 768px;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  justify-content: normal;
+}
+
+.header__theme-menu {
+  grid-column: 1 / 3 ;
+  justify-self: center;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  margin-block-start: var(--inline_block-margin);
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  font-family: var(--main-font);
+  color: var(--header-color);
+  font-weight: 400;
+  line-height: 18px;
+  font-size: var(--font-size-text);
+  text-transform: lowercase;
+  padding: 4px 13px;
+  background-color: inherit;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--header-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:hover {
+  outline: 1px solid var(--header-color-opacity);
+}
+
+.header__theme-menu-button:focus-visible {
+  text-decoration: underline;
+}
+
+.page-title {
+  font-family: var(--main-font);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
+  color: var(--font-color-title);
+  font-weight: 700;
+  line-height: 95.7px;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+  grid-column: 1 / 3;
+  justify-self: start;
+}
+
+.text-title {
+  font-family: var(--main-font);
+  font-size: var(--font-size-text);
+  color: var(--text-color-title);
+  font-weight: 700;
+  line-height: 23.4px;
+  background-color: var(--accent-color);
+  justify-self: end;
+  align-self: center;
+  max-width: 491px;
+  margin-inline-end: var(--inline_block-margin);
+  grid-column: 2 / 3;
+  justify-content: end;
+  align-self: center;
+}
+
+.main {
+  margin: 60px 20px;
+  display: grid;
+  gap: 80px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.main-title {
+  font-family: var(--main-font);
+  color: var(--text-color-main-title);
+  font-size: var(--font-size-text);
+  font-weight: 700;
+  line-height: 23.4px;
+}
+
+.article_list{
+  display: grid;
+  grid-column: 2/4;
+  gap: 20px;
+}
+
+.main-card {
+  display: grid;
+  gap: 10px;
+}
+
+.title_decor {
+  font-family: var(--main-font);
+  color: var(--text-color-title);
+  font-size: var(--font-size-text);
+  font-weight: 700;
+  line-height: 23.4px;
+  background-color: var(--accent-color);
+}
+
+.card_link {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+.card_link:focus {
+  border: none;
+}
+
+.card_link:hover {
+  text-decoration: underline;
+}
+
+.card_link:focus-visible {
+  outline: 1px solid var(--text-color);
+}
+
+.main-card-text {
+  font-family: var(--main-font);
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: var(--font-size-text);
+  line-height: 23.4px;
+}
+
+.section_content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.article_list_content {
+  grid-column: 1/4;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.title_decor_thin {
+  font-weight: 400;
+}
+
+.article_list_content2 {
+  display: grid;
+}
+
+.content_gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.content_gallery_list {
+  display: grid;
+  gap: 20px;
+  grid-column: 1 / 4;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.title_decor_gallery {
+  grid-column: 1/4;
+}
+
+.content_img {
+  display: block;
+  object-position: center;
+  object-fit: cover;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.sunset {
+  grid-column: span 2;
+}
+
+.ice-cream {
+  grid-column: 3;
+  grid-row: span 2;
+}
+
+.tape {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+.street {
+  grid-column: 2 / 2 span;
+}
+
+.footer {
+  display: grid;
+  height: 100vh;
+  min-height: 768px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  justify-content: normal;
+  position: relative;
+}
+
+.footer_title {
+  font-family: var(--main-font);
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem); 
+  color: var(--font-color-title);
+  text-shadow: 2px 2px 0 var(--footer-shadow-color);
+  font-weight: 700;
+  line-height: 95.7px;
+  align-items: center;
+  margin: auto;
+}
+
+@media (width <=768px) {
+
+  .header {
+    min-height: 1024px;
+  }
+
+  .header__theme-menu {
+    justify-self: end;
+    align-self: center;
+  }
+
+  .section {
+    gap: 20px;
+    grid-template-columns: clamp(236px, calc(100% / 3.25), 315px) 1fr;
+  }
+
+  .main {
+    gap: 80px;
+  }
+
+  .page-title {
+    line-height: 99px;
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: column;
+    margin-inline-end: 20px;
+  }
+
+  .article_list_content {
+    grid-template-columns: 1fr;
+  }
+
+  .text-title {
+    margin-block-end: 20px;
+    min-width: 364px;
+  }
+
+  .footer {
+    min-height: 1024px;
+  }
+}
+
+@media (width <=500px) {
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (width <=375px) {
+
+  .header {
+    min-height: 668px;
+  }
+
+  .decorated-zone::before {
+    margin-block-start: var(--inline_block-margin-mobile);
+    margin-inline-end: var(--inline_block-margin-mobile);
+  }
+
+  .decorated-zone::after {
+    margin-block-end: var(--inline_block-margin-mobile);
+    margin-inline-start: var(--inline_block-margin-mobile);
+  }
+
+  .decoration-zone-dark {
+    margin-block-start: var(--inline_block-margin-mobile);
+    margin-inline-end: var(--inline_block-margin-mobile);
+  }
+
+  .header__theme-menu-list {
+    flex-direction: column;
+    margin-block-start: var(--inline_block-margin-mobile);
+    margin-inline-end: 10px;
+  }
+
+  .page-title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    margin-inline-start: 7px;
+  }
+
+  .text-title {
+    margin-inline-end: var(--inline_block-margin-mobile);
+    margin-inline-start: 10px;
+    grid-column: 1 / 3;
+    min-width: 335px;
+  }
+
+  .main {
+    margin: 40px 10px;  
+    gap: 50px;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content_gallery_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content_gallery {
+    gap: 10px;
+  }
+
+  .footer {
+    min-height: 668px;
+  }
 }
