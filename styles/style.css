@@ -2,6 +2,11 @@
   font-family: var(--main-font);
   background-color: var(--bg-color);
   block-size: auto;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .decorated-zone {
@@ -71,11 +76,6 @@
   grid-template-columns: repeat(2, 1fr);
   height: 100vh;
   min-height: 768px;
-  background-image: var(--background-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   justify-content: normal;
 }
 
@@ -92,6 +92,7 @@
 
 .header__theme-menu-button {
   border: none;
+  cursor: pointer;
   font-family: var(--main-font);
   color: var(--header-color);
   font-weight: 400;
@@ -338,7 +339,7 @@
   }
 }
 
-@media (width <=500px) {
+@media (width <=660px) {
   .section {
     display: flex;
     flex-direction: column;
